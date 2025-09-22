@@ -24,13 +24,10 @@ public class EX04 {
 
     private static void con(int a, int b, int c) {
 
-        double delta1, delta2, delta3;
+        double delta = Math.pow(b, 2)-4*a*c;
 
-        delta1 = Math.pow(b, 2);
-        delta2 = 4*a*c;
-        delta3 = delta1-delta2;
-
-        System.out.println("O valor da equação é: "+delta3);
+        System.out.println("O valor da equação é: "+delta);
     }
 
 }
+
