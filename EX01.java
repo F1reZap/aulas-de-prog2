@@ -1,14 +1,13 @@
 import java.util.Scanner;
 
 public class EX01 {
-    // Vetores globais
     static String[] VetNome = new String[100];
     static String[] VetAutor = new String[100];
     static String[] VetDesc = new String[100];
     static int[] VetAno = new int[100];
     static double[] VetPrec = new double[100];
-    static int qtdLivros = 0; // contador de livros cadastrados
-
+    static int qtdLivros = 0; 
+    
     public static void main(String[] args) {
         Scanner teclado = new Scanner(System.in);
 
@@ -29,13 +28,10 @@ public class EX01 {
             if (es == 0) {
                 System.out.println("===Saindo===");
                 esval = 0;
-
             } else if (es == 1) {
                 Cadastro(teclado);
-
             } else if (es == 2) {
                 Listar();
-
             } else {
                 System.out.println("========================");
                 System.out.println("===Escolha Inválida===");
@@ -56,7 +52,7 @@ public class EX01 {
         VetAutor[qtdLivros] = teclado.nextLine();
         System.out.print("Ano: ");
         VetAno[qtdLivros] = teclado.nextInt();
-        teclado.nextLine(); // Limpa buffer
+        teclado.nextLine(); 
         System.out.print("Descrição: ");
         VetDesc[qtdLivros] = teclado.nextLine();
         System.out.print("Preço: ");
@@ -64,12 +60,11 @@ public class EX01 {
 
         System.out.println("========================");
 
-        teclado.nextLine(); // Limpa buffer
+        teclado.nextLine(); 
 
         qtdLivros++;
         System.out.println("Livro cadastrado com sucesso!\n");
         System.out.println("========================");
-
     }
 
     public static void Listar() {
