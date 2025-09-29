@@ -40,7 +40,6 @@ public class EX01 {
         }
         teclado.close();
     }
-
     public static void Cadastro(Scanner teclado) {
         if (qtdLivros >= 100) {
             System.out.println("Limite máximo de livros atingido.");
@@ -66,7 +65,6 @@ public class EX01 {
         System.out.println("Livro cadastrado com sucesso!\n");
         System.out.println("========================");
     }
-
     public static void Listar() {
         if (qtdLivros == 0) {
             System.out.println("========================");
@@ -85,3 +83,4 @@ public class EX01 {
         }
     }
 }
+
