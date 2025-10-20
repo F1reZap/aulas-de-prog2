@@ -1,5 +1,3 @@
-Claro — aqui vai uma receita simples e tradicional de paçoca de amendoim (a versão doce, tipo “paçoca rolha”), além de variações e dicas.
-
 Rendimento: ~12–16 unidades
 Tempo: 20–40 min (dependendo se você vai torrar e descascar os amendoins)
 Dificuldade: fácil
@@ -32,4 +30,3 @@ Observações
 - Pessoas com alergia a amendoim não devem consumir.
 - Para uma textura mais fina, passe o amendoim por uma peneira ou use amendoim moído muito fino.
 
-Quer que eu envie uma receita para um número maior de porções, uma versão sem açúcar (adoçante), ou a receita da paçoca salgada (com carne seca)?
