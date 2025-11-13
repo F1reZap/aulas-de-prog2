@@ -1,6 +1,4 @@
-Copilot said: Ótimo — vou te passar uma receita
-
-Ótimo — vou te passar uma receita chilena clássica e completa: Empanadas de pino (assadas). Primeiro listo ingredientes e tempos, depois o passo a passo e algumas variações e dicas.
+Empanadas de pino (assadas). Primeiro listo ingredientes e tempos, depois o passo a passo e algumas variações e dicas.
 
 Rendimento: 10–12 empanadas médias Tempo: ~1h20 (preparo 40–50 min + forno 20–25 min). Se caramelizar as cebolas lentamente, pode levar até 1h.
 
