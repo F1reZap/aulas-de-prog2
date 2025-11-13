@@ -1,0 +1,6 @@
+#BlueJ class context
+comment0.target=MailDemo
+comment0.text=\r\n\ Demonstration\ of\ cross-server\ messaging.\r\n\ Compile\ and\ run\ this\ class\ to\ see\ delivery\ between\ servers.\r\n
+comment1.params=args
+comment1.target=void\ main(java.lang.String[])
+numComments=2

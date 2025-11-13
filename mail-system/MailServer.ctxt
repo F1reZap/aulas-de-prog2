@@ -1,0 +1,24 @@
+#BlueJ class context
+comment0.target=MailServer
+comment1.params=
+comment1.target=MailServer()
+comment1.text=\r\n\ Construct\ a\ mail\ server\ with\ an\ auto-generated\ local\ name\ (for\ compatibility).\r\n\ The\ generated\ name\ will\ be\ "localhost1",\ "localhost2",\ ...\r\n
+comment2.params=name
+comment2.target=MailServer(java.lang.String)
+comment2.text=\r\n\ Construct\ a\ mail\ server\ with\ the\ given\ name\ (domain).\r\n\ The\ server\ is\ registered\ under\ that\ name\ for\ routing.\r\n\ @param\ name\ The\ name/domain\ of\ the\ server\ (e.g.\ "serverA.com").\r\n
+comment3.params=name
+comment3.target=MailServer\ getRegisteredServer(java.lang.String)
+comment3.text=\r\n\ Optional\:\ lookup\ a\ registered\ server\ by\ name\ (domain).\r\n
+comment4.params=who
+comment4.target=int\ howManyMailItems(java.lang.String)
+comment4.text=\r\n\ Return\ how\ many\ mail\ items\ are\ waiting\ for\ a\ user.\r\n\ @param\ who\ The\ user\ to\ check\ for.\r\n\ @return\ How\ many\ items\ are\ waiting.\r\n
+comment5.params=who
+comment5.target=MailItem\ getNextMailItem(java.lang.String)
+comment5.text=\r\n\ Return\ the\ next\ mail\ item\ for\ a\ user\ or\ null\ if\ there\r\n\ are\ none.\r\n\ @param\ who\ The\ user\ requesting\ their\ next\ item.\r\n\ @return\ The\ user's\ next\ item.\r\n
+comment6.params=item
+comment6.target=void\ post(MailItem)
+comment6.text=\r\n\ Add\ the\ given\ mail\ item\ to\ the\ message\ list.\r\n\ This\ method\ also\ handles\ simple\ routing\:\ if\ the\ recipient\r\n\ is\ of\ the\ form\ user@domain\ and\ domain\ is\ a\ registered\ server,\r\n\ the\ message\ will\ be\ forwarded\ to\ that\ server.\r\n\ The\ 'from'\ field\ is\ qualified\ with\ this\ server's\ name\ if\ not\ already\ qualified.\r\n\ @param\ item\ The\ mail\ item\ to\ be\ stored\ on\ the\ server\ (or\ forwarded).\r\n
+comment7.params=
+comment7.target=java.lang.String\ getName()
+comment7.text=\r\n\ Optional\ getter\ for\ server\ name.\r\n
+numComments=8
