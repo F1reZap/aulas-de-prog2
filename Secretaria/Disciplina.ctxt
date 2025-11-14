@@ -1,0 +1,16 @@
+#BlueJ class context
+comment0.target=Disciplina
+comment0.text=\r\n\ Disciplina\:\ c\u00F3digo\ \u00FAnico\ (String),\ nome,\ carga\ hor\u00E1ria\ (int)\ e\ flag\ pr\u00E1tica\ (opcional).\r\n
+comment1.params=codigo\ nome\ cargaHoraria\ pratica
+comment1.target=Disciplina(java.lang.String,\ java.lang.String,\ int,\ boolean)
+comment2.params=
+comment2.target=java.lang.String\ getCodigo()
+comment3.params=
+comment3.target=java.lang.String\ getNome()
+comment4.params=
+comment4.target=int\ getCargaHoraria()
+comment5.params=
+comment5.target=boolean\ isPratica()
+comment6.params=
+comment6.target=java.lang.String\ toString()
+numComments=7

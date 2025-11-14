@@ -1,0 +1,22 @@
+#BlueJ class context
+comment0.target=Matricula
+comment0.text=\r\n\ Matricula\:\ anoLetivo,\ serie,\ refer\u00EAncia\ para\ Aluno,\ refer\u00EAncia\ para\ Disciplina,\r\n\ e\ quatro\ notas\ de\ bimestre.\r\n
+comment1.params=anoLetivo\ serie\ aluno\ disciplina
+comment1.target=Matricula(int,\ java.lang.String,\ Aluno,\ Disciplina)
+comment2.params=
+comment2.target=int\ getAnoLetivo()
+comment3.params=
+comment3.target=java.lang.String\ getSerie()
+comment4.params=
+comment4.target=Aluno\ getAluno()
+comment5.params=
+comment5.target=Disciplina\ getDisciplina()
+comment6.params=bimestre
+comment6.target=double\ getNota(int)
+comment7.params=bimestre\ valor
+comment7.target=void\ setNota(int,\ double)
+comment8.params=
+comment8.target=double\ media()
+comment9.params=
+comment9.target=java.lang.String\ toString()
+numComments=10
