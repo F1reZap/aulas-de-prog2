@@ -21,7 +21,7 @@ Explore a mansão procurando as chaves necessárias para a sua fuga enquanto fog
 
 Abaixo está um esboço do mapa do jogo contendo dois dos três andares e 18 cômodos para explorar durante a jogatina.
 
-*Inserir imagem ou diagrama do mapa aqui caso disponível.*
+![Mapa do Jogo](aulas-de-prog2/boufet_de_amoxilina.jpeg)
 
 ---
 
