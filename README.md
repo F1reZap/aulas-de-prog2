@@ -25,6 +25,6 @@ Abaixo está um esboço do mapa do jogo contendo dois dos três andares e 18 cô
 
 ---
 
-## Opções de Monstros
+## O Monstro
 
-*Liste aqui as opções de entidades/monstros do jogo conforme forem definidas.*
+decidimos por ser uma criatura lovecraftiana na base da roleta russa.
