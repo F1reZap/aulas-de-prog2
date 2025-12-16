@@ -17,11 +17,14 @@ import java.util.HashMap;
 public class Room 
 {
     private String description;
+    private String LongDescription;
     private HashMap<String, Room> exits;
 
     public Room(String description) 
     {
         this.description = description;
+        exits = new HashMap<String, Room>();
+        this.LongDescription = LongDescription;
         exits = new HashMap<String, Room>();
     }
 
@@ -40,6 +43,10 @@ public class Room
     public String getDescription()
     {
         return description;
+    }
+    public String getLongDescription()
+    {
+        return LongDescription;
     }
 
     // Exibe as direções que existem nesse jogo de maluco

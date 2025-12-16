@@ -1,8 +1,12 @@
 #BlueJ class context
 comment0.target=Game
-comment0.text=\r\n\ \ This\ class\ is\ the\ main\ class\ of\ the\ "World\ of\ Zuul"\ application.\ \r\n\ \ "World\ of\ Zuul"\ is\ a\ very\ simple,\ text\ based\ adventure\ game.\ \ Users\ \r\n\ \ can\ walk\ around\ some\ scenery.\ That's\ all.\ It\ should\ really\ be\ extended\ \r\n\ \ to\ make\ it\ more\ interesting\!\r\n\ \r\n\ \ To\ play\ this\ game,\ create\ an\ instance\ of\ this\ class\ and\ call\ the\ "play"\r\n\ \ method.\r\n\ \r\n\ \ This\ main\ class\ creates\ and\ initialises\ all\ the\ others\:\ it\ creates\ all\r\n\ \ rooms,\ creates\ the\ parser\ and\ starts\ the\ game.\ \ It\ also\ evaluates\ and\r\n\ \ executes\ the\ commands\ that\ the\ parser\ returns.\r\n\ \r\n\ @author\ \ Michael\ K\u00F6lling\ and\ David\ J.\ Barnes\r\n\ @version\ 2016.02.29\r\n
 comment1.params=
 comment1.target=Game()
+comment10.params=
+comment10.target=void\ look()
+comment10.text=\r\n\ look\:\ mostra\ a\ descri\u00E7\u00E3o\ longa\ do\ quarto\ atual\ e\ tem\ 1/3\ de\ chance\r\n\ de\ adicionar\ a\ frase\ "uma\ t\u00E1bua\ range\ quando\ voc\u00EA\ pisa"\ e\ setar\ rangido\=true.\r\n
+comment11.params=command
+comment11.target=boolean\ quit(Command)
 comment2.params=
 comment2.target=void\ createRooms()
 comment3.params=
@@ -15,6 +19,8 @@ comment6.params=
 comment6.target=void\ printHelp()
 comment7.params=command
 comment7.target=void\ goRoom(Command)
-comment8.params=command
-comment8.target=boolean\ quit(Command)
-numComments=9
+comment8.params=
+comment8.target=boolean\ isRangido()
+comment9.params=rangido
+comment9.target=void\ setRangido(boolean)
+numComments=12
