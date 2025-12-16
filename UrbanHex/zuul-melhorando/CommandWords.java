@@ -14,7 +14,7 @@ public class CommandWords
     // Adiciona as novas direções dos meus comandos divinos muahahahahahahhahahahahahahhahahahahahahahahahhahahaha
     //não funcinou então voltei pros padrões >:( jogo chatão
     private static final String[] validCommands = {
-        "go", "quit", "look", "help"
+        "go", "quit", "help", "look"
     };
 
     public CommandWords()
