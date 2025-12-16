@@ -14,6 +14,7 @@
  * @author  Michael Kölling and David J. Barnes
  * @version 2016.02.29
  */
+import java.util.Random;
 
 public class Game 
 {
@@ -139,6 +140,38 @@ public class Game
             System.out.println("You are " + currentRoom.getDescription());
             System.out.print("Exits: " + currentRoom.getExitString());
             System.out.println();
+        }
+    }
+
+    // variável que indica se ocorreu o rangido
+    private boolean rangido = false;
+
+    // Random compartilhado (ou crie um local dentro do método)
+    private final Random random = new Random();
+
+    // Getter para rangido
+    public boolean isRangido() {
+        return rangido;
+    }
+
+    // Setter para rangido (se precisar alterar externamente)
+    public void setRangido(boolean rangido) {
+        this.rangido = rangido;
+    }
+
+    /**
+     * look: mostra a descrição longa do quarto atual e tem 1/3 de chance
+     * de adicionar a frase "uma tábua range quando você pisa" e setar rangido=true.
+     */
+    public void look() {
+        // supondo que exista currentRoom e que ele tenha getLongDescription()
+        System.out.println(currentRoom.getLongDescription());
+
+        // chance 1 em 3
+        int chance = random.nextInt(3); // 0,1,2
+        if (chance == 0) {
+            System.out.println("Uma tábua range quando você pisa.");
+            this.rangido = true;
         }
     }
 
