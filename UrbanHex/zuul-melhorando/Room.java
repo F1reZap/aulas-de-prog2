@@ -10,38 +10,54 @@
  *
  * Added: flags for items (knives, relic) and for monster presence.
  */
+/**
+ * Class Room - uma sala do jogo.
+ * Agora cada saída é um objeto Exit (vizinho + locked flag).
+ * Também suporta itens simples: facas, relíquia e chaves.
+ */
 import java.util.HashMap;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class Room
 {
     private String description;
     private String longDescription;
-    private HashMap<String, Room> exits;
+    private HashMap<String, Exit> exits;
 
     // itens / estado nesta sala
     private boolean hasMonster = false;
     private boolean hasKnives = false;
     private boolean hasRelic = false;
+    private boolean hasKey = false;
 
     public Room(String description)
     {
         this.description = description;
         this.longDescription = "Você está " + description + ".";
-        exits = new HashMap<String, Room>();
+        exits = new HashMap<String, Exit>();
     }
 
-    // Adiciona uma saida numa direção especifica
-    public void setExit(String direction, Room neighbor)
-    {
-        exits.put(direction, neighbor);
+    // Adiciona uma saida numa direção especifica 
+    public void setExit(String direction, Room neighbor) {
+        setExit(direction, neighbor, false);
     }
 
-    // Recupera a sala associada a direção anterior
-    public Room getExit(String direction)
-    {
+    // Versão que permite marcar a saída como trancada
+    public void setExit(String direction, Room neighbor, boolean locked) {
+        exits.put(direction, new Exit(neighbor, locked));
+    }
+
+    // Recupera a saída 
+    public Exit getExit(String direction) {
         return exits.get(direction);
+    }
+
+    // Recupera a sala vizinha para compatibilidade 
+    public Room getExitRoom(String direction) {
+        Exit e = exits.get(direction);
+        return (e == null) ? null : e.getNeighbor();
     }
 
     public String getDescription()
@@ -59,6 +75,9 @@ public class Room
         }
         if (hasRelic) {
             sb.append("\nUma relíquia brilhante repousa aqui.");
+        }
+        if (hasKey) {
+            sb.append("\nUma chave está aqui, brilhando no chão.");
         }
         if (hasMonster) {
             sb.append("\nAlgo parece estar aqui com você... (algo ruge)");
@@ -78,31 +97,50 @@ public class Room
     }
 
     // --- métodos para itens / monstro ---
-    public boolean hasMonster() {
-        return hasMonster;
-    }
-    public void setHasMonster(boolean v) {
-        hasMonster = v;
-    }
+    public boolean hasMonster() { return hasMonster; }
+    public void setHasMonster(boolean v) { hasMonster = v; }
 
-    public boolean hasKnives() {
-        return hasKnives;
-    }
-    public void setHasKnives(boolean v) {
-        hasKnives = v;
-    }
+    public boolean hasKnives() { return hasKnives; }
+    public void setHasKnives(boolean v) { hasKnives = v; }
 
-    public boolean hasRelic() {
-        return hasRelic;
-    }
-    public void setHasRelic(boolean v) {
-        hasRelic = v;
+    public boolean hasRelic() { return hasRelic; }
+    public void setHasRelic(boolean v) { hasRelic = v; }
+
+    public boolean hasKey() { return hasKey; }
+    public void setHasKey(boolean v) { hasKey = v; }
+
+    /**
+     * Retorna a lista de salas vizinhas.
+     */
+    public List<Room> getNeighbors() {
+        List<Room> list = new ArrayList<>();
+        for (Exit e : exits.values()) {
+            list.add(e.getNeighbor());
+        }
+        return list;
     }
 
     /**
-     * Retorna a lista de salas vizinhas (valores do mapa de exits).
+     * Retorna true se existe alguma saída trancada 
      */
-    public List<Room> getNeighbors() {
-        return new ArrayList<Room>(exits.values());
+    public boolean hasLockedExit() {
+        for (Exit e : exits.values()) {
+            if (e.isLocked()) return true;
+        }
+        return false;
+    }
+
+    /**
+     * Procura uma saída que aponte para 'target' e destravar
+     */
+    public void unlockExitTo(Room target) {
+        for (Map.Entry<String, Exit> en : exits.entrySet()) {
+            Exit e = en.getValue();
+            if (e.getNeighbor() == target && e.isLocked()) {
+                e.setLocked(false);
+                // como requisito: só uma saída trancada por sala, então podemos parar
+                return;
+            }
+        }
     }
 }
