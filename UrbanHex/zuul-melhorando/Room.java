@@ -39,12 +39,12 @@ public class Room
         exits = new HashMap<String, Exit>();
     }
 
-    // Adiciona uma saida numa direção especifica 
+    // Adiciona uma saida numa direção especifica (ava é mermo?)
     public void setExit(String direction, Room neighbor) {
         setExit(direction, neighbor, false);
     }
 
-    // Versão que permite marcar a saída como trancada
+    //marcar a saída como trancada
     public void setExit(String direction, Room neighbor, boolean locked) {
         exits.put(direction, new Exit(neighbor, locked));
     }
@@ -54,7 +54,7 @@ public class Room
         return exits.get(direction);
     }
 
-    // Recupera a sala vizinha para compatibilidade 
+    // Recupera a sala vizinha (argumentavelmente a pior criação de todas: os vizinhos)
     public Room getExitRoom(String direction) {
         Exit e = exits.get(direction);
         return (e == null) ? null : e.getNeighbor();
@@ -91,12 +91,12 @@ public class Room
         return sb.toString();
     }
 
-    // Exibe as direções que existem nesse jogo
+    // Exibe as direções que existem nessa joça
     public String getExitString() {
         return String.join(" ", exits.keySet());
     }
 
-    // --- métodos para itens / monstro ---
+    // --- métodos para itens / nomstro ---
     public boolean hasMonster() { return hasMonster; }
     public void setHasMonster(boolean v) { hasMonster = v; }
 
@@ -140,6 +140,31 @@ public class Room
                 e.setLocked(false);
                 // como requisito: só uma saída trancada por sala, então podemos parar
                 return;
+            }
+        }
+    }
+
+    /**
+     * Retorna true se EXISTEM saídas e todas elas estão trancadas.
+     */
+    public boolean allExitsLocked() {
+        if (exits.isEmpty()) return false;
+        for (Exit e : exits.values()) {
+            if (!e.isLocked()) return false;
+        }
+        return true;
+    }
+
+    /**
+     * Destrava todas as saídas desta sala e também tenta destravar as
+     * saídas recíprocas nas salas vizinhas.
+     */
+    public void unlockAllExits() {
+        for (Exit e : exits.values()) {
+            e.setLocked(false);
+            Room neighbor = e.getNeighbor();
+            if (neighbor != null) {
+                neighbor.unlockExitTo(this);
             }
         }
     }

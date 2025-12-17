@@ -18,8 +18,8 @@ import java.util.Scanner;
  */
 public class Parser 
 {
-    private CommandWords commands;  // holds all valid command words
-    private Scanner reader;         // source of command input
+    private CommandWords commands;  
+    private Scanner reader;         
 
     /**
      * Create a parser to read from the terminal window.

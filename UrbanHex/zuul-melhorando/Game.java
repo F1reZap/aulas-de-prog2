@@ -1,18 +1,14 @@
 /**
- * Game principal com mecânicas estendidas:
- * - facas (item) que podem ser encontradas com look em "cozinha"
- * - relíquia (item) encontrada em "cofre"; voltar à "entrada" com a relíquia vence o jogo
- * - monstro: pode estar em apenas uma sala; chance 1/10 de surgir em sala adjacente ao jogador
- * - se o monstro estiver adjacente, aparece o aviso de terror
- * - se o jogador entrar na sala do monstro: sem facas => morte; com facas => perde 1 faca e monstro some
- * - se look causar rangido, monstro é colocado em sala adjacente e inicia countdown de 5s; se jogador não sair, monstro entra na sala e ataca
+ * Game do Urban Hex (com certeza nn é um zuul modificado):
+ * - facas (item) que podem ser encontradas com look em "cozinha" é pavê ou pacumê?
+ * - relíquia (item) encontrada em "cofre"; voltar à "entrada" com a relíquia vence o jogo grazaDeus isso tem final
+ * - monstro: pode estar em apenas uma sala; chance 1/10 de surgir em sala adjacente ao jogador canonicamente ele é bem buxa
  */
+
+// serio pq o zuul coloca essas descrições enormes? tipo ngm lê então vou editar elas e colocar piadas de tiozão
 import java.util.Random;
 import java.util.List;
 
-/**
- * Game com portas trancadas e chaves.
- */
 public class Game
 {
     private Parser parser;
@@ -20,7 +16,6 @@ public class Game
     private Room previousRoom = null;
     private Room startRoom = null;
 
-    // monstro: só existe em no máximo 1 sala ao mesmo tempo
     private Room monsterRoom = null;
 
     // inventário
@@ -28,7 +23,7 @@ public class Game
     private int keys = 0;
     private boolean hasRelic = false;
 
-    // rangido (tábua)
+    // rangido Nheeeeeeeeeeieeeein
     private boolean rangido = false;
 
     private final Random random = new Random();
@@ -40,8 +35,8 @@ public class Game
     }
 
     /**
-     * Helper para criar saída entre duas salas com chance 1/5 de estar trancada,
-     * garantindo no máximo 1 saída trancada por sala origem.
+     * Cria saída entre duas salas com chance 1/5 de estar trancada,
+     * garantindo no máximo 1 saída trancada por sala origem. (com certeza não deu um soft lock no meio da madrugada)
      */
     private void setExitWithPossibleLock(Room from, String direction, Room to) {
         boolean lock = false;
@@ -78,12 +73,12 @@ public class Game
         Room banheiro = new Room("no banheiro");
         Room varanda = new Room("na varanda");
 
-        // Conexões térreo (usando helper que pode trancar saídas)
+        // Conexões térreo 
         setExitWithPossibleLock(entrada, "north", hall);
-        hall.setExit("south", entrada); // retorno geralmente não trancado (você pode ajustar)
+        hall.setExit("south", entrada); 
 
         setExitWithPossibleLock(hall, "north", corredor1);
-        hall.setExit("south", entrada); // garantir coerência (ou remova duplicata se conflitar)
+        hall.setExit("south", entrada); 
 
         setExitWithPossibleLock(hall, "south", corredor2);
         corredor2.setExit("north", hall);
@@ -92,7 +87,7 @@ public class Game
         estufa.setExit("north", corredor2);
 
         setExitWithPossibleLock(cozinha, "north", hall);
-        hall.setExit("south", cozinha); // atenção: aqui pode haver conflitos se já setou south antes
+        hall.setExit("south", cozinha); 
 
         setExitWithPossibleLock(cozinha, "east", estufa);
         estufa.setExit("west", cozinha);
@@ -135,7 +130,7 @@ public class Game
         // coloca os itens nas salas específicas
         cozinha.setHasKnives(true);   // facas ficam na cozinha (pegas ao usar look)
         cofre.setHasRelic(true);      // relíquia no cofre (pega ao usar look)
-        // keys aparecem aleatoriamente ao usar look (implementado em look())
+        // keys aparecem aleatoriamente ao usar look (implementado em look() pq eu sou mal)
     }
 
     public void play()
@@ -146,13 +141,13 @@ public class Game
             Command command = parser.getCommand();
             finished = processCommand(command);
         }
-        System.out.println("Thank you for playing. Good bye.");
+        System.out.println("Satisfação aspira. vá em paz.");
     }
 
     private void printWelcome()
     {
         System.out.println();
-        System.out.println("Bem-vindo à Mansão Assombrada!");
+        System.out.println("Bem-vindo à Mansão!");
         System.out.println("Explore a mansão procurando as chaves necessárias para a sua fuga.");
         System.out.println("Type 'help' se precisar de ajuda.");
         System.out.println();
@@ -165,7 +160,7 @@ public class Game
         boolean wantToQuit = false;
 
         if (command.isUnknown()) {
-            System.out.println("I don't know what you mean...");
+            System.out.println("Não sei oq cê quis dizer xará...");
             return false;
         }
 
@@ -192,8 +187,8 @@ public class Game
 
     private void printHelp()
     {
-        System.out.println("Você está perdido em uma mansão assustadora.");
-        System.out.println("Uma entidade o persegue a cada movimento.");
+        System.out.println("Você está fazendo uma exploração urbana em uma mansão.");
+        System.out.println("Dizem que ela é assombrada então cuidado.");
         System.out.println();
         System.out.println("Comandos disponíveis:");
         System.out.println("   go   back   look   quit   help");
@@ -210,7 +205,7 @@ public class Game
         Exit exit = currentRoom.getExit(direction);
 
         if (exit == null) {
-            System.out.println("There is no door!");
+            System.out.println("Tem porta não!");
             return;
         }
 
@@ -230,12 +225,15 @@ public class Game
             }
         }
 
-        // mover
+        // arredar
         previousRoom = currentRoom;
         currentRoom = exit.getNeighbor();
         System.out.println(currentRoom.getLongDescription());
 
-        // checar monstro / spawn etc (mantendo lógica anterior)
+        // nova verificação: se todas as saídas estiverem trancadas, o monstro aparece e te mata
+        handleAllExitsLockedInCurrentRoom();
+
+        // checar monstro / spawn seila só tem que manter a lógica antiga
         spawnAdjacentMonsterChance();
 
         if (monsterRoom != null && monsterRoom == currentRoom) {
@@ -246,7 +244,7 @@ public class Game
             System.out.println("Você está a salvo... Por enquanto");
         }
 
-        // se o jogador tem a relíquia e voltou à entrada => vence
+        // se o jogador tem a relíquia e voltou à entrada ---> vence
         if (hasRelic && currentRoom == startRoom) {
             System.out.println("Você escapa com Sucesso");
             System.exit(0);
@@ -262,7 +260,9 @@ public class Game
         currentRoom = previousRoom;
         System.out.println("Você voltou.");
         System.out.println(currentRoom.getLongDescription());
-        previousRoom = null; // opcional: limpa após voltar
+        previousRoom = null; 
+        // nova verificação: se todas as saídas estiverem trancadas, o monstro aparece aqui
+        handleAllExitsLockedInCurrentRoom();
 
         // spawn possível antes de checar
         spawnAdjacentMonsterChance();
@@ -300,7 +300,7 @@ public class Game
             System.out.println("Você pegou a Relíquia! Volte à entrada para escapar com sucesso.");
         }
 
-        // chaves: aparecem aleatoriamente quando usa look (ex.: 1 em 8)
+        // quicos: aparecem aleatoriamente
         if (!currentRoom.hasKey()) {
             if (random.nextInt(8) == 0) { // ajuste probabilidade aqui
                 currentRoom.setHasKey(true);
@@ -308,27 +308,27 @@ public class Game
             }
         }
 
-        // coleta chave automaticamente
+        // coleta quico automaticamente 
         if (currentRoom.hasKey()) {
             keys += 1;
             currentRoom.setHasKey(false);
             System.out.println("Você pegou uma chave! Agora tem " + keys + " chave(s).");
         }
 
-        // chance 1 em 3 rangido (como antes)
-        int chance = random.nextInt(3); // 0,1,2
+        // chance 1 em 3 do chão fazer: Nheeeeeeein
+        int chance = random.nextInt(3);
         if (chance == 0 && !rangido) {
             System.out.println("Uma tábua range quando você pisa.");
             this.rangido = true;
 
-            // coloca o monstro em uma sala adjacente ao jogador e inicia timer
+            // coloco o monstro em uma sala adjacente ao jogador e inicia timer
             placeMonsterAdjacentTo(currentRoom);
             if (monsterRoom != null) {
                 System.out.println("você escuta passadas vindo em sua direção, CORRA");
                 startMonsterTimerForRoom(currentRoom);
             }
         } else {
-            // caso não tenha rangido, ainda existe a chance 1/10 de spawn adjacente
+            // caso não tenha rangido ainda tem chance do monstro pq eu sou mau
             spawnAdjacentMonsterChance();
         }
     }
@@ -342,7 +342,7 @@ public class Game
         return true;
     }
 
-    // ----------------- MONSTRO / UTILS -----------------
+    // ----------------- NOMSTRO / UTILS -----------------
 
     private boolean isMonsterAdjacent()
     {
@@ -393,10 +393,27 @@ public class Game
                     System.out.println("O monstro entrou na sua sala!");
                     handleMonsterEncounter();
                 } else {
-                    // jogador saiu da sala a tempo;
+                    // o mald- digo o jogador saiu da sala a tempo pra minha tristeza;
                 }
             }
         }).start();
+    }
+
+    /**
+     * Se a sala atual tiver todas as saídas trancadas, forçamos a aparição do monstro nela
+     * e tratamos o encontro conforme regra nova.
+     */
+    private void handleAllExitsLockedInCurrentRoom() {
+        if (currentRoom != null && currentRoom.allExitsLocked()) {
+            if (monsterRoom != null) {
+                monsterRoom.setHasMonster(false);
+            }
+            monsterRoom = currentRoom;
+            monsterRoom.setHasMonster(true);
+
+            System.out.println("O monstro tranca todas as suas saidas e te ataca...");
+            handleMonsterEncounter();
+        }
     }
 
     private synchronized void handleMonsterEncounter()
@@ -406,6 +423,12 @@ public class Game
         if (knives > 0) {
             System.out.println("O monstro te ataca porem sua faca te salva");
             knives -= 1;
+
+            currentRoom.unlockAllExits();
+            keys += 2;
+            System.out.println("O monstro foge deixando todas as saídas destravadas. Duas chaves caem no chão.");
+            System.out.println("Agora você tem " + keys + " chave(s).");
+
             monsterRoom.setHasMonster(false);
             monsterRoom = null;
         } else {
