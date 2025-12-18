@@ -1,7 +1,7 @@
-dividir em mais clesses exp:
+# dividir em mais clesses exp:
 - jogador
 - monstro
 - inventário
-olhar conflito: monstro e sala
+# olhar conflito: monstro e sala
 explodir o if?
 
