@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.target=VideoGame
+comment1.params=theTitle\ platform\ genre\ time
+comment1.target=VideoGame(java.lang.String,\ java.lang.String,\ java.lang.String,\ int)
+comment2.params=
+comment2.target=java.lang.String\ getPlatform()
+comment3.params=
+comment3.target=java.lang.String\ getGenre()
+comment4.params=
+comment4.target=void\ print()
+comment5.params=
+comment5.target=java.lang.String\ toString()
+numComments=6

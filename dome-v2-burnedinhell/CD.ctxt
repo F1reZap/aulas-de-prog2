@@ -1,0 +1,19 @@
+#BlueJ class context
+comment0.target=CD
+comment0.text=\r\n\ The\ CD\ class\ represents\ a\ CD\ object.\ Information\ about\ the\ \r\n\ CD\ is\ stored\ and\ can\ be\ retrieved.\r\n\ \r\n\ @author\ Michael\ Kolling\ and\ David\ J.\ Barnes\r\n\ @version\ 2008.03.30\r\n
+comment1.params=theTitle\ theArtist\ tracks\ time
+comment1.target=CD(java.lang.String,\ java.lang.String,\ int,\ int)
+comment1.text=\r\n\ Initialize\ the\ CD.\r\n\ @param\ theTitle\ The\ title\ of\ the\ CD.\r\n\ @param\ theArtist\ The\ artist\ of\ the\ CD.\r\n\ @param\ tracks\ The\ number\ of\ tracks\ on\ the\ CD.\r\n\ @param\ time\ The\ playing\ time\ of\ the\ CD.\r\n
+comment2.params=
+comment2.target=java.lang.String\ getArtist()
+comment2.text=\r\n\ @return\ The\ artist\ for\ this\ CD.\r\n
+comment3.params=
+comment3.target=int\ getNumberOfTracks()
+comment3.text=\r\n\ @return\ The\ number\ of\ tracks\ on\ this\ CD.\r\n
+comment4.params=
+comment4.target=void\ print()
+comment4.text=\r\n\ Print\ CD-specific\ details.\ Reuses\ superclass\ print\ for\ base\ fields.\r\n
+comment5.params=
+comment5.target=java.lang.String\ toString()
+comment5.text=\r\n\ Optionally\ override\ toString\ to\ provide\ a\ single-string\ representation.\r\n\ This\ demonstrates\ the\ alternative\ approach\ (printing\ via\ toString).\r\n
+numComments=6

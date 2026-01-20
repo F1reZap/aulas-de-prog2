@@ -1,0 +1,15 @@
+#BlueJ class context
+comment0.target=DVD
+comment0.text=\r\n\ The\ DVD\ class\ represents\ a\ DVD\ object.\ Information\ about\ the\ \r\n\ DVD\ is\ stored\ and\ can\ be\ retrieved.\ We\ assume\ that\ we\ only\ deal\ \r\n\ with\ movie\ DVDs\ at\ this\ stage.\r\n\ \r\n\ @author\ Michael\ Kolling\ and\ David\ J.\ Barnes\r\n\ @version\ 2008.03.30\r\n
+comment1.params=theTitle\ theDirector\ time
+comment1.target=DVD(java.lang.String,\ java.lang.String,\ int)
+comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ DVD\r\n\ @param\ theTitle\ The\ title\ of\ this\ DVD.\r\n\ @param\ theDirector\ The\ director\ of\ this\ DVD.\r\n\ @param\ time\ The\ running\ time\ of\ the\ main\ feature.\r\n
+comment2.params=
+comment2.target=java.lang.String\ getDirector()
+comment2.text=\r\n\ @return\ The\ director\ for\ this\ DVD.\r\n
+comment3.params=
+comment3.target=void\ print()
+comment3.text=\r\n\ Print\ DVD-specific\ details.\ Reuses\ superclass\ print\ for\ base\ fields.\r\n
+comment4.params=
+comment4.target=java.lang.String\ toString()
+numComments=5
