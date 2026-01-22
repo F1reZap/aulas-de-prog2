@@ -1,8 +1,10 @@
 # dividir em mais clesses exp:
-- jogador
-- monstro
-- inventário
-# olhar conflito: monstro e sala
-explodir o if?
+- jogador ok
+- monstro ok
+- inventário ok
+# coisas a usar herança:
+- inventário: nope nn faz sentido
+- espaços diferentes: pode acontecer
+- 
 # lembrete:
-excluir comentários meme e comentarios de sono
+excluir comentários meme 
