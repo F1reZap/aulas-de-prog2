@@ -1,0 +1,23 @@
+#BlueJ class context
+comment0.target=Inventory
+comment1.params=
+comment1.target=Inventory()
+comment10.params=
+comment10.target=void\ pickRelic()
+comment2.params=
+comment2.target=int\ getKnives()
+comment3.params=
+comment3.target=void\ addKnife()
+comment4.params=
+comment4.target=boolean\ useKnife()
+comment5.params=
+comment5.target=int\ getKeys()
+comment6.params=
+comment6.target=void\ addKey()
+comment7.params=n
+comment7.target=void\ addKeys(int)
+comment8.params=
+comment8.target=boolean\ useKey()
+comment9.params=
+comment9.target=boolean\ hasRelic()
+numComments=11
