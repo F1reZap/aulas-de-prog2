@@ -3,3 +3,5 @@
 - 
 # lembrete:
 excluir comentários meme 
+saida não existe
+
