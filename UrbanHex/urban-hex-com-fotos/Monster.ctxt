@@ -1,0 +1,14 @@
+#BlueJ class context
+comment0.target=Monster
+comment1.params=game
+comment1.target=Monster(Game)
+comment2.params=playerRoom
+comment2.target=void\ spawnAdjacentImmediate(Room)
+comment2.text=\r\n\ Tenta\ spawnar\ o\ monstro\ imediatamente\ em\ uma\ sala\ adjacente\ ao\ jogador.\r\n\ Se\ j\u00E1\ existe\ monstro\ no\ jogo,\ n\u00E3o\ faz\ nada.\r\n
+comment3.params=alertRoom\ delayMillis
+comment3.target=void\ spawnAdjacentWithDelay(Room,\ long)
+comment3.text=\r\n\ Tenta\ spawnar\ o\ monstro\ em\ uma\ sala\ adjacente,\ mas\ s\u00F3\ efetiva\ a\ a\u00E7\u00E3o\r\n\ se\ o\ jogador\ permanecer\ na\ alertRoom\ ap\u00F3s\ o\ delay.\r\n\ Se\ j\u00E1\ houver\ monstro\ no\ jogo\ nada\ acontece.\r\n
+comment4.params=
+comment4.target=void\ cancelPendingSpawn()
+comment4.text=\r\n\ Cancela\ timer\ pendente\ se\ houver.\r\n
+numComments=5
